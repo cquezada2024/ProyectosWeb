@@ -1,0 +1,95 @@
+:root{
+    --primary-color: white;
+    --primary-color-reverse: black;
+    --menu-mobile-background-color: #3A4460;
+}
+
+* {
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+}
+
+html{
+    height: 100%;
+}
+
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.2rem;
+    min-height: 100%;
+}
+/* clase principal de la pagina*/
+.grid-container > * {
+    box-shadow: -1px 1px 7px 0px rgba(0,0,0,0.75); /* deja una caja con un estilo */
+    border-radius: 6px;
+    padding: 5px;
+    text-align: center;
+}
+
+.header{
+    grid-area: header;
+    background: #1D4350;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #A43931, #1D4350);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #A43931, #1D4350); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+/*
+.navbar{
+    grid-area: navbar;
+    background-color:darkkhaki;
+    color: aliceblue;
+    font-weight: bold;
+} */
+
+.main{
+    grid-area: main;
+    background-color:bisque;
+}
+
+.sidebar{
+    grid-area: sidebar;
+    background-color: dimgray;
+    color: aliceblue;
+    font-weight: bold;
+}
+
+
+footer{
+    grid-area: footer;
+ /*   background-color:darkslategray;
+    color: aliceblue;
+    font-weight: bold;*/
+}
+
+.grid-container{
+    display: grid;
+    gap: 10px;
+    grid-template-areas: "header" "main" "sidebar" "footer";
+}
+
+
+/*diseño para Escritorio se define 3 columnas */
+@media (min-width: 900px){
+    .grid-container{
+        grid-template: 
+            "header  header header" 70px 
+            "sidebar main main"     auto
+            "footer  footer footer" 50px /  /*especifica ancho */
+            300px auto; /*ancho columnas*/
+    }
+}
+
+@media (max-width: 600px){
+    .grid-container{        
+        grid-template: 
+            "header"    70px             
+            "sidebar"   35px
+            "main"      auto
+            "footer"    50px / 
+             auto; 
+    }
+}
